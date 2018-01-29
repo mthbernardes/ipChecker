@@ -1,0 +1,5 @@
+hug
+typing
+requests
+pydal
+lxml
