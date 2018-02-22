@@ -1,6 +1,5 @@
 import os
 from threading import Thread
-from cloudflare import Cloudflare
 
 def updater(m,plugin):
     print('Module %s started' % plugin)
