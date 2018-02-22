@@ -1,0 +1,4 @@
+hug
+pydal
+pymongo
+uwsgi

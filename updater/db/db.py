@@ -4,10 +4,8 @@ from datetime import datetime
 
 class Models(object):
     def __new__(self,):
-        #username,passwd,host,port = os.getenv('DATABASE_USERNAME'),os.getenv('DATABASE_PASSWORD'),os.getenv('DATABASE_HOST'),os.getenv('DATABASE_PORT')
-        #dalString  = 'mongodb://%s:%s@%s:%s/ipChecker' % (username,passwd,host,port) #uncomment to use mongodb
-        dalString  = 'sqlite://ipChecker.db'  #uncomment to use sqlite
-        db = DAL(dalString,migrate=True)
+        dalString  = 'mongodb://mongodb/ipChecker'
+        db = DAL(dalString)
         db.define_table('ips',
             Field('ip'),
             Field('created_at',default=datetime.now().strftime("%d/%m/%Y")),

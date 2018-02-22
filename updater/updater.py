@@ -1,4 +1,4 @@
-import os
+import os,time
 from threading import Thread
 
 def updater(m,plugin):
@@ -10,6 +10,7 @@ def updater(m,plugin):
     print('Module %s completed' % plugin )
 
 def main():
+    threadsList = []
     path = os.path.dirname(os.path.abspath(__file__))
     os.chdir(path)
     files = os.listdir('plugins')
@@ -17,8 +18,14 @@ def main():
     plugins = [plugin.replace('.py','') for plugin in plugins if '.pyc' not in plugin]
     for plugin in plugins:
         m = __import__ ('plugins.%s' % (plugin),fromlist=[plugin])
-        updater(m,plugin)
-        #t = Thread(target=updater, args=(m,plugin,))
-        #t.start()
+        t = Thread(target=updater, args=(m,plugin,))
+        threadsList.append(t)
+        t.start()
+
+    for t in threadsList:
+        t.join()
+
 if __name__ == '__main__':
-    main()
+    while 1:
+        main()
+        time.sleep(30)

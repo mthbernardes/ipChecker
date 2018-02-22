@@ -1,9 +1,6 @@
 """A API REST to validated malicious IP's"""
-import os
 import hug
 from db.db import Database
-from threading import Thread
-from hug_middleware_cors import CORSMiddleware
 
 api = hug.API(__name__)
 
@@ -46,7 +43,4 @@ def total():
     db = Database()
     totalIps = len(db.total())
     totalRequests,totalAllowed,totalBlocked = db.statistics()
-    files = os.listdir('plugins')
-    plugins = [plugin for plugin in files if '__' not in plugin]
-    plugins = [plugin.replace('.py','') for plugin in plugins if '.pyc' not in plugin]
-    return {'ips':totalIps,'requests':totalRequests,'allowed':totalAllowed,'blocked':totalBlocked,'plugins':plugins,'total_plugins':len(plugins)}
+    return {'ips':totalIps,'requests':totalRequests,'allowed':totalAllowed,'blocked':totalBlocked}

@@ -1,0 +1,5 @@
+typing
+requests
+pydal
+lxml
+pymongo
