@@ -13,17 +13,36 @@ The containers communicate through a docker network called ipchecker-network, an
 
 To avoid a lot of false positive, the api only returns ip's from the curent day, because almost proxies servers and tor nodes, are dinamic ip's. 
 
+# Plugins
+Here is the list of working plugins on ipChecker
+
+- cloudproxies.com
+- gatherproxy.com
+- hidemy.name
+- httptunnel.ge
+- multiproxy.org
+- nordvpn.com
+- proxy-list.org
+- rebro.weebly.com
+- samair.ru
+- torstatus.blutmagie.de
+- xroxy.com
+
 # Install
 ```bash
 git clone https://github.com/mthbernardes/ipChecker
 cd ipchecker/
 ```
-
 Option to execute the service:
-- make buld -> Build all images
-- make run -> Build and run all images
-- make stop -> Stop all services
-- make wipe -> Stop all services and wipe all images and mongodb data
+
+| Command        | Description      |
+| -------------- | ----------------:|
+| ```make buld```      | Build all images |
+| ```make run```      | Build and run all images |
+| ```make stop```      | Stop all services |
+| ```make wipe```      | Stop all services and wipe all images and mongodb data |
+
+If you don't have docker, you'll need to install it. ([Docker Install](https://docs.docker.com/install/))
 
 # Basic Usage
 Here is the basic usage of the API, for see all the endpoints and access the / endpoint.
