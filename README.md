@@ -11,7 +11,7 @@ Basically, when you run the command ```make run``` it will start docker swarm cr
 
 The containers communicate through a docker network called ipchecker-network, and only the port 8080 is exposed where you consume the API.
 
-To avoid a lot of false positive, the api only returns ip's from the curent day, because almost proxies servers and tor nodes, are dinamic ip's. 
+To avoid a lot of false positive, the api only returns ip's from the curent day, because almost proxies servers and tor nodes, are dynamic ip's. 
 
 # Plugins
 Here is the list of working plugins on ipChecker
